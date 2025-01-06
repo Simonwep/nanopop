@@ -1,4 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #505276;
+    border-radius: 0.2em;
+}
+
+::-webkit-scrollbar-corner {
+    display: none;
+}
+
+:root {
+    --font: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+    --c-text: #c2c5eb;
+    --c-primary: #8d92ff;
+    --c-secondary: #1f2a5f;
+    --cta-button-gradient: linear-gradient(137deg, #8708df, #2077db, #3cecd5);
+}
 
 * {
     margin: 0;
@@ -6,72 +27,118 @@
     box-sizing: border-box;
 }
 
-:root {
-    --text: #30343b;
-    --text-secondary: white;
-    --primary: #30343b;
-    --primary-accent: #3e434d;
-    --secondary: #212326;
-    --active: #f9e130;
-    --active-secondary: #ffb829;
-    --font: 'Nunito', sans-serif;
-}
-
-body, html {
-    font-family: var(--font);
-    width: 100%;
+html,
+body {
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #0a0e21;
+    font-family: var(--font);
+    margin: 0 15px;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    margin: 5vh auto;
+    text-align: center;
+    font-size: 2.5em;
+    padding: 1.2em 0 0 0;
 }
-
-header img {
-    height: 3em;
-}
-
 
 header h1 {
-    font-weight: 300;
-    margin-left: 1em;
-    color: var(--text);
+    font-size: 1em;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    color: var(--c-text);
 }
 
-body > p {
-    color: var(--text);
+header h2 {
+    margin: 1em 0;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    color: var(--c-text);
 }
 
-.gh-link {
-    display: flex;
+header a {
+    display: inline-flex;
     align-items: center;
-    background: var(--active);
-    padding: 0.5em 1em;
-    margin-top: 1.5em;
-    border-radius: 55em;
-    font-size: 0.85em;
-    box-shadow: 0 0.25vmin 1vmin var(--active);
     text-decoration: none;
+    font-weight: 500;
+    font-size: 0.3em;
+    color: white;
+    margin-top: 5vh;
+    padding: 0.75em 1.25em;
+    transition: 0.3s all;
+    background: var(--cta-button-gradient);
+    border-radius: 50em;
+    position: relative;
 }
 
-.gh-link svg {
-    fill: var(--text);
-    width: 1.5em;
-    height: 1.5em;
+header a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    right: 0;
+    bottom: 0;
+    background: var(--cta-button-gradient);
+    transition: 0.3s all;
+    transform: scale(0.95);
+    filter: blur(10px);
+    z-index: -1;
 }
 
-.gh-link span {
-    color: var(--text);
-    margin-left: 0.5em;
-    font-weight: 600;
+header a svg {
+    width: 24px;
+    height: 24px;
+    margin-right: 0.75rem;
+}
+
+header a:hover {
+    filter: brightness(1.05);
+}
+
+header a:hover::before {
+    filter: blur(10px) brightness(1.1);
+    transform: none;
+}
+
+h2 {
+    margin: 30px 0 15px;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    color: var(--c-text);
+}
+
+main {
+    width: 100%;
+    max-width: 830px;
+    margin: 1.5em auto;
+}
+
+.demo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo h2 {
+    margin: 30px 0 15px;
+    font-weight: 400;
+    font-size: 17px;
+    text-align: center;
+    color: var(--c-text);
+}
+
+.demo .info {
+    text-align: center;
+    font-size: 13px;
+    line-height: 2em;
+    color: var(--c-text);
 }
 
 .popper {
@@ -82,7 +149,7 @@ body > p {
     position: fixed;
     width: 2em;
     height: 2em;
-    background: var(--secondary);
+    background: var(--c-primary);
     border-radius: 0.25em;
     visibility: hidden;
 }
@@ -90,14 +157,14 @@ body > p {
 .popper svg {
     width: 1em;
     height: 1em;
-    fill: var(--text-secondary);
+    fill: var(--c-secondary);
 }
 
 .reference {
     font-size: 2.25vmin;
     width: 10vmin;
     height: 10vmin;
-    background: var(--primary);
+    background: var(--c-primary);
     margin: 15vmin 0;
     border-radius: 0.25em;
 }
@@ -112,32 +179,19 @@ body > p {
     -webkit-tap-highlight-color: transparent;
     text-transform: uppercase;
     font-weight: 600;
-    font-family: var(--font);
-    color: var(--text-secondary);
+    color: var(--c-text);
     outline: none;
-    padding: 1vmin 2em;
+    padding: 1vmin;
+    width: 75px;
     background: transparent;
     cursor: pointer;
     transition: all 0.3s;
+    background: var(--c-primary);
     border: 1px solid transparent;
 }
 
-.controls button:not(.active):hover {
-    background: var(--primary-accent);
-}
-
 .controls button.active {
-    color: var(--active);
-    border-top-color: var(--active);
-    border-bottom-color: var(--active);
-}
-
-.controls button:focus {
-    outline: none;
-}
-
-.controls button:not(:last-child) {
-    border-right-color: var(--secondary);
+    background: var(--c-secondary);
 }
 
 .controls > section {
@@ -146,31 +200,4 @@ body > p {
     margin: 0.25em 0;
     overflow: hidden;
     border-radius: 0.25vmin;
-    border: 1px solid var(--secondary);
-    background: var(--primary);
-}
-
-@media screen and (max-width: 475px) {
-    .gh-link {
-        font-size: 1em;
-    }
-
-    .reference {
-        font-size: 1.25em;
-        margin: auto;
-        width: 20vmin;
-        height: 20vmin;
-    }
-
-    .popper {
-        font-size: 1.25em;
-    }
-
-    .controls {
-        margin-bottom: 5vh;
-    }
-
-    .controls button {
-        padding: 3vmin 5vmin;
-    }
 }

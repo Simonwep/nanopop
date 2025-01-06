@@ -1,8 +1,6 @@
-
-# Node-modules
 node_modules/
-
-# IntelliJ, build files and misc
+test-results/
+dist/
 *.iml
 .idea
 .psd
