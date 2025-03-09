@@ -178,12 +178,10 @@ main {
 .controls button {
     -webkit-tap-highlight-color: transparent;
     text-transform: uppercase;
-    font-weight: 600;
     color: var(--c-text);
+    font-weight: bold;
     outline: none;
-    padding: 1vmin;
-    width: 75px;
-    background: transparent;
+    padding: 1vmin 2vmin;
     cursor: pointer;
     transition: all 0.3s;
     background: var(--c-primary);
@@ -199,5 +197,5 @@ main {
     align-items: center;
     margin: 0.25em 0;
     overflow: hidden;
-    border-radius: 0.25vmin;
+    border-radius: 1000px;
 }
